@@ -1,0 +1,113 @@
+body{
+    background: #2b3c5d;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input{
+    border: none;
+    font-size: 17px;
+}
+
+button{
+    border: none;
+    background: inherit;
+    font-size: 30px;
+    font-weight: 200;
+    line-height: 0.5;
+    color: #c7c5c5;
+}
+
+h3{
+    font-weight: 500;
+}
+
+.todo__window {
+    background: white;
+    max-width: 476px;
+    width: 100%;
+    min-height: 688px;
+    margin: 15vh auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 6px;
+}
+
+.high__task,
+.low__task {
+    max-width: 460px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.task-add {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 25px;
+    border: solid #c7c5c5 1px;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 10px
+}
+
+.task-added{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 25px;
+    border: solid #c7c5c5 1px;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 10px
+}
+
+
+input[type="checkbox"].checkbox {
+    display: none;
+}
+
+.task-added {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+.task-added input[type="checkbox"].checkbox + span::before {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #c7c5c5;
+    border-radius: 50%;
+    background: #fff;
+    margin-right: 10px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.task-added input[type="checkbox"].checkbox + span::after {
+    content: "";
+    position: absolute;
+    left:13px;
+    top: 14.5px;
+    width: 16px;
+    height: 16px;
+    background: #c7c5c5;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+}
+
+.task-added input[type="checkbox"].checkbox:checked + span::after {
+    opacity: 1;
+    transform: scale(1);
+}
+

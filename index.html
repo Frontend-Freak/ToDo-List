@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ToDo-List</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="todo__window">
+			<div class="high__task">
+				<h3>HIGH</h3>
+				<form id="addHighTaskForm" class="task-add">
+					<input id="highTask" type="text" placeholder="Добавить важных дел"/>
+					<button id="addButton" type="submit">+</button>
+				</form>
+				<div id="savedHighTask">
+					<!-- <label class="task-added" for="checkboxTask1">
+						<input type="checkbox" id="checkboxTask1" class="checkbox"/>
+						<span>dkkdkdkd</span>
+						<button type="button" aria-label="Удалить задачу">×</button>
+					</label> -->
+				</div>
+			</div>
+
+			<div class="low__task">
+				<h3>LOW</h3>
+				<form id="addLowTaskForm" class="task-add">
+					<input id="lowTask" type="text" placeholder="Добавить"/>
+					<button id="addButton" type="submit">+</button>
+				</form>
+				<div id="savedLowTask">
+					<!-- <label class="task-added" for="checkboxTask1">
+						<input type="checkbox" id="checkboxTask1" class="checkbox"/>
+						<span>dkkdkdkd</span>
+						<button type="button" aria-label="Удалить задачу">×</button>
+					</label> -->
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="main.js"></script>
+</html>
