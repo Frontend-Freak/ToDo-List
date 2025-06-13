@@ -111,3 +111,6 @@ input[type="checkbox"].checkbox {
     transform: scale(1);
 }
 
+.task__done{
+    text-decoration: line-through;
+}
