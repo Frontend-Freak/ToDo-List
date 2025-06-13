@@ -13,7 +13,7 @@ data.tasks.forEach(task => {
     try {
         if (task.text.length > 30) { throw new Error('Ошибка: задача не должна превышать 30 символов') }
         if (task.text.length < 3) { throw new Error('Ошибка: задача не может быть меньше 3 символов') }
-        saveTask(task.text, task.priority);
+        saveTask(task.text, task.priority, task.status);
     } catch(error) {
         console.error(error.message)
     }
@@ -21,16 +21,15 @@ data.tasks.forEach(task => {
 
 renderTask()
 
-
-function saveTask(taskText, priority) {
+function saveTask(taskText, priority, status = 'to do') {
 	const taskObject = {
 		text: taskText,
 		priority: priority,
+		status: status
 	};
 	allTasks.push(taskObject);
 	console.log(allTasks);
 	renderTask();
-	
 }
 
 function renderTask() {
@@ -45,6 +44,7 @@ function renderTask() {
 
 		checkbox.type = "checkbox";
 		checkbox.className = "checkbox";
+		checkbox.checked = task.status === "done";
 		taskText.textContent = task.text;
 		deleteButton.textContent = "×";
 		deleteButton.className = "delete-button";
@@ -54,9 +54,14 @@ function renderTask() {
 		newTask.appendChild(deleteButton);
 		newTask.className = "task-added";
 
-		const priorityTask =
-			task.priority === "high" ? savedHighTask : savedLowTask;
+		const priorityTask = task.priority === "high" ? savedHighTask : savedLowTask;
 		priorityTask.appendChild(newTask);
+
+		checkbox.addEventListener("click", () => {
+			task.status = checkbox.checked ? "done" : "to do";
+			taskText.textContent = task.text;
+			taskText.className = 'task__done'
+		});
 
 		deleteButton.addEventListener("click", () => {
 			allTasks.splice(index, 1);
@@ -88,7 +93,6 @@ addLowTaskForm.addEventListener("submit", function (event) {
 	event.preventDefault();
 	try {
 		const taskText = addLowTask.value;
-
 		if (taskText.length < 3) {
 			throw new Error("Ошибка: задача должна быть не меньше 3 символов");
 		}
