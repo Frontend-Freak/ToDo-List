@@ -60,7 +60,11 @@ function renderTask() {
 		checkbox.addEventListener("click", () => {
 			task.status = checkbox.checked ? "done" : "to do";
 			taskText.textContent = task.text;
-			taskText.className = 'task__done'
+			if (checkbox.checked) {
+				taskText.classList.add('task__done');
+			} else {
+				taskText.classList.remove('task__done');
+			}
 		});
 
 		deleteButton.addEventListener("click", () => {
